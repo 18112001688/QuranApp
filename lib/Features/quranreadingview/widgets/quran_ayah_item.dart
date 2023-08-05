@@ -1,4 +1,5 @@
 import 'package:Qurane_app/core/constant/constent.dart';
+import 'package:Qurane_app/core/utlity/arabic_numbers.dart';
 import 'package:Qurane_app/core/utlity/images.dart';
 import 'package:flutter/material.dart';
 
@@ -47,9 +48,9 @@ class QuranAyahItem extends StatelessWidget {
                     child: Stack(
                       children: [
                         Text(
-                          surahNumber.toString(),
+                          surahNumber.toString().toArabicNumbers,
                           style: const TextStyle(
-                            fontSize: 12,
+                            fontSize: 14,
                           ),
                         ),
                       ],

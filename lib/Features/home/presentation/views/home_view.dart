@@ -1,8 +1,10 @@
+import 'package:Qurane_app/Features/home/presentation/manager/cubit/last_read_ayah_cubit.dart';
 import 'package:Qurane_app/Features/home/widget/custom_item.dart';
 import 'package:Qurane_app/Features/home/widget/custom_last_read_item.dart';
 import 'package:Qurane_app/core/constant/constent.dart';
 import 'package:Qurane_app/core/utlity/images.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeView extends StatelessWidget {

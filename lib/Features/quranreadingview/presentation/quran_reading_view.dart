@@ -1,6 +1,8 @@
+import 'package:Qurane_app/Features/home/presentation/manager/cubit/last_read_ayah_cubit.dart';
 import 'package:Qurane_app/Features/quranreadingview/widgets/quran_ayah_item.dart';
 import 'package:Qurane_app/core/constant/constent.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:quran/quran.dart';
 
@@ -38,6 +40,12 @@ class QuranReadingView extends StatelessWidget {
                   surahNumber: surhNumber.toString(),
                   firstVerse: firstFiveWords,
                   onTab: () {
+                    String surahName = surhName;
+                    int ayahNumber = surhNumber;
+                    context
+                        .read<LastReadAyahCubit>()
+                        .setLastReadAyah(surahName, ayahNumber);
+
                     GoRouter.of(context).push('/AyahReadingView',
                         extra: getSurahText(surhNumber));
                   },
