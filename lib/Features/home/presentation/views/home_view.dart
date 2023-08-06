@@ -1,10 +1,8 @@
-import 'package:Qurane_app/Features/home/presentation/manager/cubit/last_read_ayah_cubit.dart';
 import 'package:Qurane_app/Features/home/widget/custom_item.dart';
 import 'package:Qurane_app/Features/home/widget/custom_last_read_item.dart';
 import 'package:Qurane_app/core/constant/constent.dart';
 import 'package:Qurane_app/core/utlity/images.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeView extends StatelessWidget {
@@ -40,7 +38,7 @@ class HomeView extends StatelessWidget {
                 ),
                 const CustomLastReadItem(),
                 const Padding(
-                  padding: EdgeInsets.only(top: 20, right: 10),
+                  padding: EdgeInsets.only(top: 30, right: 10),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
@@ -54,7 +52,7 @@ class HomeView extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(
-                  height: 20,
+                  height: 30,
                 ),
                 Row(
                   children: [
