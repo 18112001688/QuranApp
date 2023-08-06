@@ -25,13 +25,16 @@ class AhdesView extends StatelessWidget {
           builder: (context, state) {
             if (state is AhdesSuccess) {
               final hdes = state.hdesModel.items;
-              return ListView.builder(
-                  itemCount: hdes.length,
-                  itemBuilder: (context, index) {
-                    return CustomHdesItem(
-                      text: hdes[index].arab,
-                    );
-                  });
+              return Scrollbar(
+                thumbVisibility: true,
+                child: ListView.builder(
+                    itemCount: hdes.length,
+                    itemBuilder: (context, index) {
+                      return CustomHdesItem(
+                        text: hdes[index].arab,
+                      );
+                    }),
+              );
             } else if (state is AhdesFailure) {
               return CoustemErrorWidget(errorMessage: state.errorMessage);
             } else {

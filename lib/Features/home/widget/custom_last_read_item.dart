@@ -51,7 +51,7 @@ class CustomLastReadItem extends StatelessWidget {
                   left: 13,
                   top: 60,
                   child: Text(
-                    "أسم السوره:     ${state.surahName}",
+                    state.surahName,
                     style: const TextStyle(
                         color: Colors.white,
                         fontSize: 14,
@@ -63,7 +63,7 @@ class CustomLastReadItem extends StatelessWidget {
                   left: 13,
                   top: 95,
                   child: Text(
-                    "رقم السوره:    ${state.ayahNumber.toArabicNumbers}",
+                    "رقم السوره:   ${state.ayahNumber}",
                     style: const TextStyle(
                         color: Colors.white,
                         fontSize: 14,
