@@ -45,6 +45,7 @@ dependencies:
   rename: ^2.1.1
   quran: ^1.2.2
   flutter_svg: ^2.0.7
+  flutter_native_splash: ^2.3.1
   
   
   
