@@ -1,67 +1,67 @@
-import 'package:Qurane_app/Features/home/presentation/views/home_view.dart';
-import 'package:Qurane_app/Features/splash/widgets/button.dart';
-import 'package:Qurane_app/core/constant/constent.dart';
-import 'package:Qurane_app/core/utlity/images.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:go_router/go_router.dart';
 
-class SplashView extends StatelessWidget {
+class SplashView extends StatefulWidget {
   const SplashView({super.key});
+
+  @override
+  State<SplashView> createState() => _SplashViewState();
+}
+
+class _SplashViewState extends State<SplashView>
+    with SingleTickerProviderStateMixin {
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersive);
+
+    Future.delayed(const Duration(seconds: 2), () {
+      GoRouter.of(context).pushReplacement('/HomeView');
+    });
+  }
+
+  @override
+  void dispose() {
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+        overlays: SystemUiOverlay.values);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: Column(
+      body: Container(
+        width: double.infinity,
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xffDF98FA),
+              Color(0xff994EF8),
+            ],
+            begin: Alignment.topRight,
+            end: Alignment.bottomLeft,
+          ),
+        ),
+        child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'My Quran',
-              style: TextStyle(
-                color: primaryColor,
-                fontWeight: FontWeight.w800,
-                fontSize: 35,
-                fontFamily: 'Poppins',
-              ),
+            Icon(
+              Icons.edit,
+              size: 80,
+              color: Colors.white,
             ),
-            const Text(
-              'Read the Quran with Ease',
-              style: TextStyle(
-                fontSize: 15,
-                color: Color(0xffA8A8A8),
-                fontFamily: 'Poppins',
-              ),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            Stack(alignment: AlignmentDirectional.center, children: [
-              Center(child: Image.asset(Utlity.imageFour)),
-              Padding(
-                padding: const EdgeInsets.only(top: 50),
-                child: Center(
-                  child: Image.asset(
-                    Utlity.imagefive,
-                    height: 500,
-                    width: 250,
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(top: 450),
-                child: Button(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const HomeView()));
-                  },
-                  text: 'Get Started',
-                ),
-              )
-            ]),
-            const SizedBox(
+            SizedBox(
               height: 30,
             ),
+            Text(
+              'My Quran',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 40,
+                fontFamily: 'Poppins',
+              ),
+            )
           ],
         ),
       ),
