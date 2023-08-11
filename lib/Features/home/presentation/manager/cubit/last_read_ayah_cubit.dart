@@ -8,9 +8,9 @@ class LastReadAyahCubit extends Cubit<LastReadAyahState> {
       : super(LastReadAyahSuccess(surahName: '', ayahNumber: 0));
 
   Future<void> setLastReadAyah(String surahName, int ayahNumber) async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString("LastReadSurhName", surahName);
-    prefs.setInt("LastReadSurahNumber", ayahNumber);
-    emit(LastReadAyahSuccess(surahName: surahName, ayahNumber: ayahNumber));
-  }
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+  await prefs.setString("LastReadSurahName", surahName);
+  await prefs.setInt("LastReadSurahNumber", ayahNumber);
+  emit(LastReadAyahSuccess(surahName: surahName, ayahNumber: ayahNumber));
+}
 }
