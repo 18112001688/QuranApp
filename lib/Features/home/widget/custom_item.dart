@@ -2,12 +2,13 @@ import 'package:Qurane_app/core/constant/constent.dart';
 import 'package:flutter/material.dart';
 
 class CustomItem extends StatelessWidget {
-  const CustomItem(
-      {super.key,
-      required this.firstColor,
-      required this.text,
-      required this.onTap,
-      required this.image});
+  const CustomItem({
+    super.key,
+    required this.firstColor,
+    required this.text,
+    required this.onTap,
+    required this.image,
+  });
   final Color firstColor;
   final String text;
   final VoidCallback onTap;

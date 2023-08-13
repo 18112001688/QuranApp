@@ -73,7 +73,7 @@ class HomeView extends StatelessWidget {
                       onTap: () {
                         GoRouter.of(context).push('/AhdesView');
                       },
-                      image: Utlity.imageAhdes,
+                      image: Utlity.imageThree,
                     ),
                   ],
                 ),
@@ -88,7 +88,7 @@ class HomeView extends StatelessWidget {
                       onTap: () {
                         GoRouter.of(context).push('/AzkarView');
                       },
-                      image: Utlity.imageThree,
+                      image: Utlity.imageRamdan,
                     ),
                     const SizedBox(
                       width: 30,

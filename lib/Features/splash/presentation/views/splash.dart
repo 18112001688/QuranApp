@@ -36,11 +36,11 @@ class _SplashViewState extends State<SplashView>
       body: Container(
         width: double.infinity,
         decoration: const BoxDecoration(
-          color: Color(0xff180B37),
+          color: Color(0xff141e1f),
         ),
         child: Column(
           children: [
-            Image.asset(Utlity.imageMousq),
+            Image.asset(Utlity.imageMoon),
             const SizedBox(
               height: 30,
             ),
