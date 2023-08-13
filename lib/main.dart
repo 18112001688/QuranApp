@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:Qurane_app/core/utlity/app_router.dart';
 import 'package:Qurane_app/core/utlity/service_locater.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-
 
 void main() {
   setupServiceLocater();

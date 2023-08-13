@@ -73,7 +73,7 @@ class HomeView extends StatelessWidget {
                       onTap: () {
                         GoRouter.of(context).push('/AhdesView');
                       },
-                      image: Utlity.imageOne,
+                      image: Utlity.imageAhdes,
                     ),
                   ],
                 ),

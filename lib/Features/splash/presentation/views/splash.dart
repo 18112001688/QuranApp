@@ -1,3 +1,5 @@
+import 'package:Qurane_app/core/constant/constent.dart';
+import 'package:Qurane_app/core/utlity/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:go_router/go_router.dart';
@@ -34,34 +36,38 @@ class _SplashViewState extends State<SplashView>
       body: Container(
         width: double.infinity,
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            colors: [
-              Color(0xffDF98FA),
-              Color(0xff994EF8),
-            ],
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-          ),
+          color: Color(0xff180B37),
         ),
-        child: const Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Column(
           children: [
-            Icon(
-              Icons.edit,
-              size: 80,
-              color: Colors.white,
-            ),
-            SizedBox(
+            Image.asset(Utlity.imageMousq),
+            const SizedBox(
               height: 30,
             ),
-            Text(
-              'My Quran',
+            const Padding(
+              padding: EdgeInsets.only(top: 150),
+              child: Text(
+                'القُرْآنِ والأَحَادِيثُ',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 35,
+                  fontFamily: 'me_quran',
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 15,
+            ),
+            const Text(
+              'والأَذْكَارُ',
               style: TextStyle(
                 color: Colors.white,
-                fontSize: 40,
-                fontFamily: 'Poppins',
+                fontSize: 35,
+                fontFamily: 'me_quran',
+                fontWeight: FontWeight.bold,
               ),
-            )
+            ),
           ],
         ),
       ),
