@@ -1,3 +1,4 @@
+import 'package:Qurane_app/Features/home/widget/custom_drawer_menu.dart';
 import 'package:Qurane_app/Features/home/widget/custom_item.dart';
 import 'package:Qurane_app/Features/home/widget/custom_last_read_item.dart';
 import 'package:Qurane_app/core/constant/constent.dart';
@@ -6,35 +7,49 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 class HomeView extends StatelessWidget {
-  const HomeView({Key? key}) : super(key: key);
+  HomeView({Key? key}) : super(key: key);
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: const Text(
+          'My Quran',
+          style: TextStyle(
+            color: primaryColor,
+            fontSize: 30,
+            fontWeight: FontWeight.w600,
+            fontFamily: 'poppins',
+          ),
+        ),
+        leading: IconButton(
+          icon: const Icon(
+            Icons.menu,
+            color: primaryColor,
+          ),
+          onPressed: () {
+            _scaffoldKey.currentState?.openDrawer();
+          },
+        ),
+      ),
+      drawer: const CustomDrwer(),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               children: [
-                const Align(
-                  alignment: Alignment.topCenter,
-                  child: Text(
-                    'My Quran',
-                    style: TextStyle(
-                      color: primaryColor,
-                      fontSize: 30,
-                      fontWeight: FontWeight.w600,
-                      fontFamily: 'poppins',
+                const Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    SizedBox(
+                      height: 3,
                     ),
-                  ),
-                ),
-                const SizedBox(
-                  height: 3,
-                ),
-                const Text(
-                  'Read the quran with ease',
-                  style: TextStyle(color: Colors.grey),
+                  ],
                 ),
                 const CustomLastReadItem(),
                 const Padding(
@@ -90,9 +105,7 @@ class HomeView extends StatelessWidget {
                       },
                       image: Utlity.imageRamdan,
                     ),
-                    const SizedBox(
-                      width: 30,
-                    ),
+                    const SizedBox(width: 30),
                     CustomItem(
                       firstColor: const Color(0xff9BE8D8),
                       text: "أوقات الصلاة",

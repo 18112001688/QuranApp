@@ -1,4 +1,3 @@
-import 'package:Qurane_app/core/constant/constent.dart';
 import 'package:Qurane_app/core/utlity/images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
