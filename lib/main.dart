@@ -1,4 +1,5 @@
 import 'package:Qurane_app/Features/home/presentation/manager/Them/them_cubit.dart';
+import 'package:Qurane_app/Features/home/presentation/manager/Them_prefrences/cubit/them_prefrence_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:Qurane_app/core/utlity/app_router.dart';
 import 'package:Qurane_app/core/utlity/service_locater.dart';
@@ -25,6 +26,9 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => ThemeCubit(),
         ),
+        BlocProvider(
+          create: (context) => ThemPrefrenceCubit(),
+        )
       ],
       child: BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, state) {

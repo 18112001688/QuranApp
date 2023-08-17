@@ -75,7 +75,7 @@ class CustomDrwer extends StatelessWidget {
           ),
           SwitchListTile(
             title: const Text(
-              'تغيير',
+              'الوضع الليلي',
               style: TextStyle(
                 fontFamily: 'me_quran',
                 fontWeight: FontWeight.bold,
