@@ -11,10 +11,12 @@ class CustomAzkarItem extends StatelessWidget {
         width: double.infinity,
         padding: const EdgeInsets.all(8),
         decoration: BoxDecoration(
-            color: Colors.grey[400],
+            color: Theme.of(context).brightness == Brightness.light
+                ? Colors.grey[400]
+                : const Color(0xff180B37),
             borderRadius: BorderRadius.circular(12),
             boxShadow: const [
-              BoxShadow(color: Colors.grey, offset: Offset(0, 4))
+              BoxShadow(color: Colors.grey, offset: Offset(2, 2))
             ]),
         child: Text(
           azkatItem,
