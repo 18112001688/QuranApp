@@ -1,5 +1,7 @@
+import 'package:Qurane_app/Features/home/presentation/manager/Them/them_cubit.dart';
 import 'package:Qurane_app/core/constant/constent.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class CustomDrwer extends StatelessWidget {
@@ -8,14 +10,19 @@ class CustomDrwer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Theme.of(context).brightness == Brightness.light
+          ? Colors.white
+          : const Color(0xff180B37),
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(
+          DrawerHeader(
             decoration: BoxDecoration(
-              color: primaryColor,
+              color: Theme.of(context).brightness == Brightness.light
+                  ? primaryColor
+                  : const Color(0xff180B37),
             ),
-            child: Padding(
+            child: const Padding(
               padding: EdgeInsets.only(top: 20),
               child: Text(
                 "يَا أَيُّهَا الَّذِينَ آمَنُوا إِذَا لَقِيتُمْ فِئَةً فَاثْبُتُوا وَاذْكُرُوا اللَّهَ كَثِيرًا لَعَلَّكُمْ تُفْلِحُونَ",
@@ -55,19 +62,6 @@ class CustomDrwer extends StatelessWidget {
           ),
           ListTile(
             title: const Text(
-              'الأذكار',
-              style: TextStyle(
-                fontFamily: 'me_quran',
-                fontWeight: FontWeight.bold,
-                fontSize: 22,
-              ),
-            ),
-            onTap: () {
-              GoRouter.of(context).push('/AzkarView');
-            },
-          ),
-          ListTile(
-            title: const Text(
               'أوقات الصلاة',
               style: TextStyle(
                 fontFamily: 'me_quran',
@@ -77,6 +71,20 @@ class CustomDrwer extends StatelessWidget {
             ),
             onTap: () {
               GoRouter.of(context).push('/PrayTimeView');
+            },
+          ),
+          SwitchListTile(
+            title: const Text(
+              'تغيير',
+              style: TextStyle(
+                fontFamily: 'me_quran',
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
+              ),
+            ),
+            value: context.watch<ThemeCubit>().state == ThemeState.dark,
+            onChanged: (value) {
+              BlocProvider.of<ThemeCubit>(context).toggleTheme();
             },
           ),
         ],

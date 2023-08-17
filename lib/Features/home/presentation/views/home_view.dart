@@ -13,23 +13,30 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
       key: _scaffoldKey,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: Theme.of(context).brightness == Brightness.light
+            ? Colors.white
+            : const Color(0xff180B37),
         elevation: 0,
-        title: const Text(
+        title: Text(
           'My Quran',
           style: TextStyle(
-            color: primaryColor,
+            color: Theme.of(context).brightness == Brightness.light
+                ? primaryColor // Color for light mode
+                : Colors.white,
             fontSize: 30,
             fontWeight: FontWeight.w600,
             fontFamily: 'poppins',
           ),
         ),
         leading: IconButton(
-          icon: const Icon(
+          icon: Icon(
             Icons.menu,
-            color: primaryColor,
+            color: Theme.of(context).brightness == Brightness.light
+                ? primaryColor
+                : Colors.white,
           ),
           onPressed: () {
             _scaffoldKey.currentState?.openDrawer();
@@ -52,14 +59,16 @@ class HomeView extends StatelessWidget {
                   ],
                 ),
                 const CustomLastReadItem(),
-                const Padding(
-                  padding: EdgeInsets.only(top: 30, right: 10),
+                Padding(
+                  padding: const EdgeInsets.only(top: 30, right: 10),
                   child: Align(
                     alignment: Alignment.centerLeft,
                     child: Text(
                       'Popular',
                       style: TextStyle(
-                        color: primaryColor,
+                        color: Theme.of(context).brightness == Brightness.light
+                            ? primaryColor
+                            : Colors.white,
                         fontSize: 30,
                         fontFamily: 'poppins',
                       ),

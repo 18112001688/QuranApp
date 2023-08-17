@@ -11,7 +11,9 @@ class AyahReadingView extends StatelessWidget {
     final List<String> ayahs = surahText.split('\n');
 
     return Scaffold(
-      backgroundColor: const Color(0xffFFEECC),
+      backgroundColor: Theme.of(context).brightness == Brightness.light
+          ? const Color(0xffFFEECC)
+          : const Color(0xff180B37),
       appBar: AppBar(
         backgroundColor: primaryColor,
         title: const Text(

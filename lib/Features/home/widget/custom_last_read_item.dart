@@ -1,4 +1,4 @@
-import 'package:Qurane_app/Features/home/presentation/manager/cubit/last_read_ayah_cubit.dart';
+import 'package:Qurane_app/Features/home/presentation/manager/last_read_cubit/last_read_ayah_cubit.dart';
 import 'package:Qurane_app/core/utlity/custom_error_widget.dart';
 import 'package:Qurane_app/core/utlity/images.dart';
 import 'package:flutter/material.dart';
