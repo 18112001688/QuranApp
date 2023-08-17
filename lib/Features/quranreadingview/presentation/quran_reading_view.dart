@@ -13,7 +13,9 @@ class QuranReadingView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Theme.of(context).brightness == Brightness.light
+            ? primaryColor
+            : const Color(0xff180B37),
         title: const Text(
           'القرأن الكريم',
           style: TextStyle(

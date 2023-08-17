@@ -13,7 +13,9 @@ class AzkarView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: primaryColor,
+          backgroundColor: Theme.of(context).brightness == Brightness.light
+              ? primaryColor
+              : const Color(0xff180B37),
           title: const Text(
             'أذكار الصباح والمساء',
             style: TextStyle(fontFamily: 'me_quran'),

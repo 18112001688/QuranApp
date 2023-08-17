@@ -10,10 +10,12 @@ class CustomHdesItem extends StatelessWidget {
       child: Container(
         width: double.infinity,
         decoration: BoxDecoration(
-            color: Colors.grey[400],
+            color: Theme.of(context).brightness == Brightness.light
+                ? Colors.grey[400]
+                : const Color(0xff180B37),
             borderRadius: BorderRadius.circular(12),
             boxShadow: const [
-              BoxShadow(color: Colors.grey, offset: Offset(0, 4))
+              BoxShadow(color: Colors.grey, offset: Offset(2, 2))
             ]),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,

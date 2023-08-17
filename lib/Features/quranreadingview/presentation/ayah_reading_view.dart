@@ -15,7 +15,9 @@ class AyahReadingView extends StatelessWidget {
           ? const Color(0xffFFEECC)
           : const Color(0xff180B37),
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Theme.of(context).brightness == Brightness.light
+            ? primaryColor
+            : const Color(0xff180B37),
         title: const Text(
           'بِسْمِ اللَّـهِ الرَّحْمَـٰنِ الرَّحِيمِ',
           style: TextStyle(
