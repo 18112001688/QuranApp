@@ -24,7 +24,7 @@ class AppRouter {
       ),
       GoRoute(
         path: "/HomeView",
-        builder: (context, state) => HomeView(),
+        builder: (context, state) => const HomeView(),
       ),
       // GoRoute(
       //   path: "/QuranView",
