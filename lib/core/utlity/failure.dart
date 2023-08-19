@@ -33,8 +33,9 @@ class ServerFilauire extends Failure {
 
       case DioExceptionType.unknown:
         if (dioError.message != null &&
-            dioError.message!.contains('SocketException')) {
-          // Handle SocketException here
+            (dioError.message!.contains('SocketException') ||
+                dioError.message!.contains('Failed host lookup'))) {
+          // Handle no internet connection here
           return ServerFilauire('no internet connection occurred');
         }
         break;
@@ -58,4 +59,3 @@ class ServerFilauire extends Failure {
     }
   }
 }
-

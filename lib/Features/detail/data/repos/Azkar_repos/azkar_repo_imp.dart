@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:Qurane_app/Features/detail/data/models/azkar_model/azkar_data.dart';
 import 'package:Qurane_app/Features/detail/data/repos/Azkar_repos/azkar_repo.dart';
 import 'package:Qurane_app/core/utlity/api_service.dart';
@@ -20,9 +22,14 @@ class AzkarRepoImp implements AzkarRepo {
       return right(azkarData);
     } catch (e) {
       if (e is DioException) {
-        return left(ServerFilauire.fromDioError(e));
+        return left(ServerFilauire.fromDioError(e)); // Use ServerFailure here
+      } else if (e is SocketException) {
+        return left(ServerFilauire(
+            'No internet connection occurred')); // Handle SocketException here
+      } else {
+        return left(ServerFilauire(
+            'Oops, there was an error')); // Handle other exceptions
       }
-      return left(ServerFilauire(e.toString()));
     }
   }
 }
