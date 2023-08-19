@@ -1,14 +1,27 @@
+import 'package:Qurane_app/Features/home/presentation/manager/last_read_cubit/last_read_ayah_cubit.dart';
 import 'package:Qurane_app/Features/home/widget/custom_drawer_menu.dart';
 import 'package:Qurane_app/Features/home/widget/custom_item.dart';
 import 'package:Qurane_app/Features/home/widget/custom_last_read_item.dart';
 import 'package:Qurane_app/core/constant/constent.dart';
 import 'package:Qurane_app/core/utlity/images.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
-class HomeView extends StatelessWidget {
-  HomeView({Key? key}) : super(key: key);
+class HomeView extends StatefulWidget {
+  const HomeView({Key? key}) : super(key: key);
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  @override
+  void initState() {
+    super.initState();
+    context.read<LastReadAyahCubit>().getLastReadAyah();
+  }
 
   @override
   Widget build(BuildContext context) {
