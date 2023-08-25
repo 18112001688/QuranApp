@@ -1,4 +1,3 @@
-import 'package:Qurane_app/Features/detail/presentation/views/sepha_view.dart';
 import 'package:Qurane_app/Features/home/presentation/manager/Them/them_cubit.dart';
 import 'package:Qurane_app/core/constant/constent.dart';
 import 'package:flutter/material.dart';
@@ -37,45 +36,6 @@ class CustomDrwer extends StatelessWidget {
           ),
           ListTile(
             title: const Text(
-              'القرأن الكريم',
-              style: TextStyle(
-                fontFamily: 'me_quran',
-                fontWeight: FontWeight.bold,
-                fontSize: 22,
-              ),
-            ),
-            onTap: () {
-              GoRouter.of(context).push('/QuranReadingView');
-            },
-          ),
-          ListTile(
-            title: const Text(
-              'الأحاديث',
-              style: TextStyle(
-                fontFamily: 'me_quran',
-                fontWeight: FontWeight.bold,
-                fontSize: 22,
-              ),
-            ),
-            onTap: () {
-              GoRouter.of(context).push('/AhdesView');
-            },
-          ),
-          ListTile(
-            title: const Text(
-              'أوقات الصلاة',
-              style: TextStyle(
-                fontFamily: 'me_quran',
-                fontWeight: FontWeight.bold,
-                fontSize: 22,
-              ),
-            ),
-            onTap: () {
-              GoRouter.of(context).push('/PrayTimeView');
-            },
-          ),
-          ListTile(
-            title: const Text(
               'السبحة',
               style: TextStyle(
                 fontFamily: 'me_quran',
@@ -84,9 +44,7 @@ class CustomDrwer extends StatelessWidget {
               ),
             ),
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return const SephaView();
-              }));
+              GoRouter.of(context).push('/SephaView');
             },
           ),
           SwitchListTile(
