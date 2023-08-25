@@ -50,9 +50,11 @@ class SephaViewBody extends StatelessWidget {
               children: [
                 Text(
                   '$state ',
-                  style: const TextStyle(
-                    color: primaryColor,
-                    fontSize: 30,
+                  style: TextStyle(
+                    color: Theme.of(context).brightness == Brightness.light
+                        ? primaryColor
+                        : Colors.white,
+                    fontSize: 40,
                     fontFamily: 'me_quran',
                   ),
                 ),
@@ -63,9 +65,11 @@ class SephaViewBody extends StatelessWidget {
                   child: Container(
                     width: 100,
                     height: 100,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       shape: BoxShape.circle,
-                      color: primaryColor,
+                      color: Theme.of(context).brightness == Brightness.light
+                          ? primaryColor
+                          : const Color(0xff180B37),
                     ),
                     child: const Center(
                       child: Icon(
@@ -77,8 +81,12 @@ class SephaViewBody extends StatelessWidget {
                   ),
                 ),
                 ElevatedButton(
-                  style: const ButtonStyle(
-                    backgroundColor: MaterialStatePropertyAll(primaryColor),
+                  style: ButtonStyle(
+                    backgroundColor: MaterialStatePropertyAll(
+                      Theme.of(context).brightness == Brightness.light
+                          ? primaryColor
+                          : const Color(0xff180B37),
+                    ),
                   ),
                   onPressed: () {
                     BlocProvider.of<SephaCounterCubit>(context).reset();
