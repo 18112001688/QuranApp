@@ -11,7 +11,13 @@ class SephaView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: primaryColor,
+          backgroundColor: Theme.of(context).brightness == Brightness.light
+              ? primaryColor
+              : const Color(0xff180B37),
+          title: const Text(
+            ' سَبِّحِ اسْمَ رَبِّكَ الْأَعْلَى',
+            style: TextStyle(fontFamily: 'me_quran'),
+          ),
         ),
         body: BlocProvider(
           create: (context) => SephaCounterCubit(),
@@ -28,10 +34,13 @@ class SephaViewBody extends StatelessWidget {
     return BlocBuilder<SephaCounterCubit, int>(
       builder: (context, state) {
         return Container(
-          decoration: const BoxDecoration(
+          decoration: BoxDecoration(
             image: DecorationImage(
               image: AssetImage(
-                  Utlity.imageFrame), // Replace with your image asset
+                Theme.of(context).brightness == Brightness.light
+                    ? Utlity.imageFrame
+                    : Utlity.imageDarkFrame,
+              ), // Replace with your image asset
               fit: BoxFit.cover,
             ),
           ),
