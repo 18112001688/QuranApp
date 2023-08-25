@@ -1,3 +1,4 @@
+import 'package:Qurane_app/Features/detail/presentation/views/sepha_view.dart';
 import 'package:Qurane_app/Features/home/presentation/manager/Them/them_cubit.dart';
 import 'package:Qurane_app/core/constant/constent.dart';
 import 'package:flutter/material.dart';
@@ -71,6 +72,21 @@ class CustomDrwer extends StatelessWidget {
             ),
             onTap: () {
               GoRouter.of(context).push('/PrayTimeView');
+            },
+          ),
+          ListTile(
+            title: const Text(
+              'السبحة',
+              style: TextStyle(
+                fontFamily: 'me_quran',
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
+              ),
+            ),
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return const SephaView();
+              }));
             },
           ),
           SwitchListTile(

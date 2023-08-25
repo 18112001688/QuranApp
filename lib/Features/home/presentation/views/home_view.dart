@@ -34,12 +34,12 @@ class _HomeViewState extends State<HomeView> {
             : const Color(0xff180B37),
         elevation: 0,
         title: Text(
-          'My Quran',
+          'My Quran-قرأني',
           style: TextStyle(
             color: Theme.of(context).brightness == Brightness.light
                 ? primaryColor // Color for light mode
                 : Colors.white,
-            fontSize: 30,
+            fontSize: 25,
             fontWeight: FontWeight.w600,
             fontFamily: 'poppins',
           ),
@@ -105,7 +105,7 @@ class _HomeViewState extends State<HomeView> {
                       width: 30,
                     ),
                     CustomItem(
-                      firstColor: const Color(0xffFFECAF),
+                      firstColor: const Color(0xffD7BBF5),
                       text: "الأحاديث",
                       onTap: () {
                         GoRouter.of(context).push('/AhdesView');
@@ -120,7 +120,7 @@ class _HomeViewState extends State<HomeView> {
                 Row(
                   children: [
                     CustomItem(
-                      firstColor: const Color(0xff78C1F3),
+                      firstColor: const Color(0xffD7BBF5),
                       text: "الأذكار",
                       onTap: () {
                         GoRouter.of(context).push('/AzkarView');
@@ -129,7 +129,7 @@ class _HomeViewState extends State<HomeView> {
                     ),
                     const SizedBox(width: 30),
                     CustomItem(
-                      firstColor: const Color(0xff9BE8D8),
+                      firstColor: const Color(0xffEDE4FF),
                       text: "أوقات الصلاة",
                       onTap: () {
                         GoRouter.of(context).push('/PrayTimeView');

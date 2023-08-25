@@ -7,6 +7,7 @@ import 'package:Qurane_app/Features/detail/presentation/manager/pray_time_cubit/
 import 'package:Qurane_app/Features/detail/presentation/views/ahdes_view.dart';
 import 'package:Qurane_app/Features/detail/presentation/views/azkar_view.dart';
 import 'package:Qurane_app/Features/detail/presentation/views/pray_time_view.dart';
+import 'package:Qurane_app/Features/detail/presentation/views/sepha_view.dart';
 import 'package:Qurane_app/Features/home/presentation/views/home_view.dart';
 import 'package:Qurane_app/Features/quranreadingview/presentation/ayah_reading_view.dart';
 import 'package:Qurane_app/Features/quranreadingview/presentation/quran_reading_view.dart';
@@ -70,6 +71,12 @@ class AppRouter {
           final surahText = state.extra;
 
           return AyahReadingView(surahText: surahText.toString());
+        },
+      ),
+      GoRoute(
+        path: "/SephaView",
+        builder: (context, state) {
+          return const SephaView();
         },
       ),
     ],

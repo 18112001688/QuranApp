@@ -15,4 +15,5 @@ class Utlity {
   static const String imageGroup = 'assets/images/Group (1).png';
   static const String imageMoon = 'assets/images/moon.jpg';
   static const String imageRamdan = "assets/images/ramdan.png";
+  static const String imageFrame = "assets/images/frame.jpg";
 }
