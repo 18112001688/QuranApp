@@ -1,8 +1,10 @@
 import 'package:Qurane_app/Features/home/presentation/manager/Them/them_cubit.dart';
+import 'package:Qurane_app/Features/home/widget/contact_devolper_button.dart';
 import 'package:Qurane_app/core/constant/constent.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class CustomDrwer extends StatelessWidget {
   const CustomDrwer({super.key});
@@ -60,9 +62,117 @@ class CustomDrwer extends StatelessWidget {
             onChanged: (value) {
               BlocProvider.of<ThemeCubit>(context).toggleTheme();
             },
+            secondary: Icon(
+                context.watch<ThemeCubit>().state == ThemeState.dark
+                    ? Icons.brightness_2 // Icon for dark mode
+                    : Icons.wb_sunny, // Icon for light mode
+                color: Theme.of(context).brightness == Brightness.light
+                    ? Colors.amber
+                    : primaryColor),
           ),
+          const SizedBox(
+            height: 380,
+          ),
+          ListTile(
+            title: const Text(
+              'أتصل بالمطور',
+              style: TextStyle(
+                fontFamily: 'me_quran',
+                fontWeight: FontWeight.bold,
+                fontSize: 22,
+              ),
+            ),
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return AlertDialog(
+                    title: const Text('Contact Developer'),
+                    content: SingleChildScrollView(
+                      child: ListBody(
+                        children: [
+                          ContactDevlperButton(
+                            buttonColor:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? primaryColor
+                                    : const Color(0xff180B37),
+                            color: Colors.white,
+                            onPressed: (() {
+                              _launchUrl(
+                                  'https://www.facebook.com/profile.php?id=100008992934539');
+                            }),
+                            text: 'via Facebook',
+                          ),
+                          ContactDevlperButton(
+                            onPressed: () {
+                              _launchEmail('mousatfasaper167@gmail.com');
+                            },
+                            buttonColor:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? primaryColor
+                                    : const Color(0xff180B37),
+                            color: Colors.white,
+                            text: 'via Email',
+                          ),
+                          ContactDevlperButton(
+                            buttonColor:
+                                Theme.of(context).brightness == Brightness.light
+                                    ? primaryColor
+                                    : const Color(0xff180B37),
+                            color: Colors.white,
+                            onPressed: (() {
+                              _launchUrl(
+                                  'https://www.linkedin.com/in/moustafa-mahmoud-45a7b4204/');
+                            }),
+                            text: 'via LinkedIn',
+                          ),
+                        ],
+                      ),
+                    ),
+                    actions: <Widget>[
+                      TextButton(
+                        child: Text(
+                          'Close',
+                          style: TextStyle(
+                              color: Theme.of(context).brightness ==
+                                      Brightness.light
+                                  ? primaryColor
+                                  : Colors.white),
+                        ),
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+          )
         ],
       ),
     );
   }
+}
+
+Future<void> _launchUrl(url) async {
+  if (!await launchUrl(Uri.parse(url))) {
+    throw Exception('Could not launch $url');
+  }
+}
+
+Future<void> _launchEmail(String email) async {
+  final Uri emailLaunchUri = Uri(
+    scheme: 'mailto',
+    path: email, // Replace with your email address
+    queryParameters: {
+      'subject': 'Your Subject Here', // Specify the email subject
+      'body': 'Hello,\n\n', // Specify the email body (initial content)
+    },
+  );
+
+  if (!await launchUrl(emailLaunchUri)) {
+    throw Exception('Could not launch email');
+  }
+  await launchUrl(emailLaunchUri);
 }

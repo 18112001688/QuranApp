@@ -41,7 +41,7 @@ class _HomeViewState extends State<HomeView> {
                 : Colors.white,
             fontSize: 25,
             fontWeight: FontWeight.w600,
-            fontFamily: 'poppins',
+            fontFamily: 'me_quran',
           ),
         ),
         leading: IconButton(
