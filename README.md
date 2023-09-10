@@ -1,6 +1,7 @@
 # quran
 
-A new Flutter project.
+A complete Quran Islamic app With quran data and Azkar prayer Times Ahdes 
+With a user Friendly UI and much more
 
 ## Getting Started
 
